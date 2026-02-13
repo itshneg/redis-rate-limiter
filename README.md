@@ -149,12 +149,11 @@ Creates a new rate limiter instance.
 
 **Parameters:**
 
-- `rdb`: Redis client (supports `*redis.Client`, `*redis.ClusterClient`, etc.)
+- `client`: Redis client
 - `key`: Unique key for this rate limit (e.g., user ID, API endpoint)
-- `rate`: Maximum number of requests allowed in the time period
-- `opts`: Optional configuration:
-    - `Per(duration)`: Time period for the rate limit (default: 1 second)
-    - `WithContext(ctx)`: Context for cancellation support
+- `r`: Maximum number of requests allowed in the time period
+- `w`: Time period for the rate limit (for TokenRateLimiter: 1 second)
+- `burst`: Maximum size of events
 
 **Returns:** A `RateLimiter` interface
 
