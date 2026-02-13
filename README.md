@@ -137,9 +137,10 @@ type RateLimiter interface {
     WaitN(ctx context.Context, n int) error
 }
 ```
-
-- **Take()**: Blocks until the request is allowed under the rate limit, then returns the time when the request was allowed and any error that occurred.
-
+- **AllowN()**: Reports whether n events may happen at time t.
+- **Allow()**: Allow is an alias for AllowN when n=1.
+- **WaitN()**: Blocks until the n requests are allowed under the rate limit.
+- **Wait()**: Wait is an alias for WaitN when n=1.
 ### Functions
 
 #### `func NewSlidingRateLimiter(client *redis.Client, key string, r int, w time.Duration) (RateLimiter, error) `
