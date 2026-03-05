@@ -13,7 +13,7 @@ import (
 
 func TestSlidingRateLimiterAllowN(t *testing.T) {
 	client := redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     "localhost:56379",
 		Password: "",
 		DB:       0,
 	})
