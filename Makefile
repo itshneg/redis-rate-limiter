@@ -2,9 +2,9 @@ docker:
 	docker compose up -d
 
 test:
+	docker compose up -d
 	go test ./... -v -race -coverprofile=coverage.out
-
-test-docker: docker test
+	docker compose down
 
 lint:
 	golangci-lint run
